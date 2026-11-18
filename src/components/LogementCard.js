@@ -1,45 +1,105 @@
-// E1.3 — Carte marquable
-// La carte ne décide rien : elle AFFICHE la marque (prop `marque`)
-// et PRÉVIENT le parent quand on la touche (prop `onToggle`).
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function LogementCard({ logement, marque, onToggle }) {
+export default function LogementCard({
+  logement,
+  favori,
+  onPress,
+  onToggleFavori,
+}) {
   return (
-    <Pressable onPress={onToggle} style={[styles.card, marque && styles.cardMarquee]}>
-      {logement.image ? (
-        <Image source={{ uri: logement.image }} style={styles.image} />
-      ) : (
-        <View style={[styles.image, styles.placeholder]}>
-          <Text style={styles.placeholderText}>Pas de photo</Text>
-        </View>
-      )}
+    <View style={styles.card}>
+      <Pressable onPress={onPress} style={styles.contenu}>
+        {logement.image ? (
+          <Image source={{ uri: logement.image }} style={styles.image} />
+        ) : (
+          <View style={[styles.image, styles.placeholder]}>
+            <Text style={styles.placeholderText}>Pas de photo</Text>
+          </View>
+        )}
 
-      <View style={styles.row}>
-        <Text style={styles.title} numberOfLines={2}>
-          {marque ? "★ " : ""}
-          {logement.title}
+        <View style={styles.informations}>
+          <Text style={styles.title} numberOfLines={1}>
+            {logement.title}
+          </Text>
+          <Text style={styles.city}>{logement.city}</Text>
+          <Text style={styles.price}>{logement.price} € par nuit</Text>
+        </View>
+      </Pressable>
+
+      <Pressable onPress={onToggleFavori} style={styles.favoriteButton}>
+        <Text style={[styles.favorite, favori && styles.favoriteActive]}>
+          {favori ? "♥" : "♡"}
         </Text>
-        <Text>{logement.city}</Text>
-        <Text style={styles.price}>{logement.price} €</Text>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 16,
-    padding: 12,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 12,
+    width: "48%",
+    marginBottom: 18,
+    borderRadius: 16,
     backgroundColor: "#fff",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 3,
   },
-  cardMarquee: { borderColor: "#FF5A5F", borderWidth: 2 },
-  image: { width: "100%", aspectRatio: 16 / 9, borderRadius: 8 },
-  placeholder: { backgroundColor: "#eee", alignItems: "center", justifyContent: "center" },
-  placeholderText: { color: "#888" },
-  row: { flexDirection: "row", alignItems: "flex-start", gap: 8, marginTop: 8 },
-  title: { flex: 1, fontSize: 16, fontWeight: "bold" },
-  price: { fontSize: 16, fontWeight: "700" },
+  contenu: {
+    paddingBottom: 12,
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+  },
+  placeholder: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#eee",
+  },
+  placeholderText: {
+    color: "#888",
+  },
+  informations: {
+    paddingHorizontal: 10,
+    paddingTop: 10,
+  },
+  title: {
+    color: "#222",
+    fontSize: 15,
+    fontWeight: "700",
+  },
+  city: {
+    marginTop: 4,
+    color: "#777",
+    fontSize: 13,
+  },
+  price: {
+    marginTop: 8,
+    color: "#222",
+    fontSize: 13,
+    fontWeight: "700",
+  },
+  favoriteButton: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    width: 32,
+    height: 32,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 16,
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+  },
+  favorite: {
+    color: "#333",
+    fontSize: 22,
+  },
+  favoriteActive: {
+    color: "#e31c5f",
+  },
 });

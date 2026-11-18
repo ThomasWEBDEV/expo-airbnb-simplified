@@ -1,15 +1,58 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { router } from "expo-router";
+import { useState } from "react";
+import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 import LogementCard from "../../../components/LogementCard";
+import { useFavoris } from "../../../context/FavorisContext";
 import { logements } from "../../../data/logements";
 
 export default function Accueil() {
+  const { isFavori, toggleFavori } = useFavoris();
+  const [recherche, setRecherche] = useState("");
+
+  const logementsFiltres = logements.filter((logement) => {
+    const texte = recherche.trim().toLowerCase();
+
+    return (
+      logement.title.toLowerCase().includes(texte) ||
+      logement.city.toLowerCase().includes(texte)
+    );
+  });
+
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.logo}>staybnb</Text>
+          <Text style={styles.slogan}>Trouvez votre prochain séjour</Text>
+        </View>
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>T</Text>
+        </View>
+      </View>
+
+      <TextInput
+        style={styles.searchBar}
+        value={recherche}
+        onChangeText={setRecherche}
+        placeholder="Rechercher une destination"
+      />
+
       <FlatList
-        data={logements}
+        data={logementsFiltres}
+        numColumns={2}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <LogementCard logement={item} />}
+        columnWrapperStyle={styles.row}
+        renderItem={({ item }) => (
+          <LogementCard
+            logement={item}
+            favori={isFavori(item.id)}
+            onPress={() => router.push(`/logement/${item.id}`)}
+            onToggleFavori={() => toggleFavori(item.id)}
+          />
+        )}
+        ListHeaderComponent={<Text style={styles.sectionTitle}>Logements populaires</Text>}
         contentContainerStyle={styles.liste}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -18,9 +61,59 @@ export default function Accueil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    backgroundColor: "#fafafa",
+    paddingHorizontal: 16,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingTop: 18,
+    paddingBottom: 16,
+  },
+  logo: {
+    color: "#e31c5f",
+    fontSize: 26,
+    fontWeight: "800",
+  },
+  slogan: {
+    marginTop: 3,
+    color: "#777",
+    fontSize: 13,
+  },
+  avatar: {
+    width: 38,
+    height: 38,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 19,
+    backgroundColor: "#222",
+  },
+  avatarText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "700",
+  },
+  searchBar: {
+    marginBottom: 22,
+    paddingHorizontal: 14,
+    paddingVertical: 13,
+    borderWidth: 1,
+    borderColor: "#e5e5e5",
+    borderRadius: 14,
+    backgroundColor: "#fff",
+    fontSize: 14,
+  },
+  sectionTitle: {
+    marginBottom: 14,
+    color: "#222",
+    fontSize: 20,
+    fontWeight: "700",
+  },
+  row: {
+    justifyContent: "space-between",
   },
   liste: {
-    paddingBottom: 16,
+    paddingBottom: 24,
   },
 });
