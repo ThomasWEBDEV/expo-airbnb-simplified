@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import { logements } from "../../data/logements";
 
@@ -10,6 +10,9 @@ export default function Logement() {
     return (
       <View style={styles.container}>
         <Text style={styles.titre}>Logement introuvable</Text>
+        <Link href="/accueil" style={styles.retour}>
+          Retour à l'accueil
+        </Link>
       </View>
     );
   }
@@ -31,5 +34,9 @@ const styles = StyleSheet.create({
   },
   titre: {
     fontSize: 20,
+  },
+  retour: {
+    marginTop: 16,
+    color: "blue",
   },
 });
