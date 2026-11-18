@@ -50,7 +50,7 @@ export default function Logement() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
   },
   contenu: {
     padding: 16,
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   },
   retour: {
     marginBottom: 16,
-    color: "#222",
     fontSize: 15,
     fontWeight: "600",
   },
@@ -79,39 +78,39 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 21,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
   },
   favorite: {
-    color: "#333",
+    color: "grey",
     fontSize: 27,
   },
   favoriteActive: {
-    color: "#e31c5f",
+    color: "red",
   },
   titre: {
     marginTop: 20,
-    color: "#222",
+    color: "grey",
     fontSize: 26,
     fontWeight: "800",
   },
   city: {
     marginTop: 8,
-    color: "#666",
+    color: "grey",
     fontSize: 16,
   },
   price: {
     marginTop: 18,
-    color: "#222",
+    color: "grey",
     fontSize: 17,
     fontWeight: "700",
   },
   separator: {
     height: 1,
     marginVertical: 22,
-    backgroundColor: "#e5e5e5",
+    backgroundColor: "white",
   },
   description: {
-    color: "#444",
+    color: "grey",
     fontSize: 15,
     lineHeight: 22,
   },

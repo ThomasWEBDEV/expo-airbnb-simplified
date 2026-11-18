@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   bouton: {
     padding: 12,
     borderRadius: 8,
-    backgroundColor: "#e31c5f",
+    backgroundColor: "red",
   },
   boutonTexte: {
     color: "white",
