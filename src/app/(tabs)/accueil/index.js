@@ -1,11 +1,22 @@
 import { router } from "expo-router";
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 import LogementCard from "../../../components/LogementCard";
 import { useFavoris } from "../../../context/FavorisContext";
 import { logements } from "../../../data/logements";
 
 export default function Accueil() {
   const { isFavori, toggleFavori } = useFavoris();
+  const [recherche, setRecherche] = useState("");
+
+  const logementsFiltres = logements.filter((logement) => {
+    const texte = recherche.trim().toLowerCase();
+
+    return (
+      logement.title.toLowerCase().includes(texte) ||
+      logement.city.toLowerCase().includes(texte)
+    );
+  });
 
   return (
     <View style={styles.container}>
@@ -19,14 +30,15 @@ export default function Accueil() {
         </View>
       </View>
 
-      <Pressable style={styles.searchBar}>
-        <Text style={styles.searchIcon}>⌕</Text>
-        <Text style={styles.searchText}>Rechercher une destination</Text>
-        <Text style={styles.filterIcon}>☷</Text>
-      </Pressable>
+      <TextInput
+        style={styles.searchBar}
+        value={recherche}
+        onChangeText={setRecherche}
+        placeholder="Rechercher une destination"
+      />
 
       <FlatList
-        data={logements}
+        data={logementsFiltres}
         numColumns={2}
         keyExtractor={(item) => item.id}
         columnWrapperStyle={styles.row}
@@ -83,8 +95,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   searchBar: {
-    flexDirection: "row",
-    alignItems: "center",
     marginBottom: 22,
     paddingHorizontal: 14,
     paddingVertical: 13,
@@ -92,20 +102,7 @@ const styles = StyleSheet.create({
     borderColor: "#e5e5e5",
     borderRadius: 14,
     backgroundColor: "#fff",
-  },
-  searchIcon: {
-    marginRight: 10,
-    color: "#222",
-    fontSize: 24,
-  },
-  searchText: {
-    flex: 1,
-    color: "#777",
     fontSize: 14,
-  },
-  filterIcon: {
-    color: "#222",
-    fontSize: 20,
   },
   sectionTitle: {
     marginBottom: 14,
