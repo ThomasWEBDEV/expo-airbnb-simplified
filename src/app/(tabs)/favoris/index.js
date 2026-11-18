@@ -45,19 +45,18 @@ export default function Favoris() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: "white",
     paddingHorizontal: 16,
     paddingTop: 20,
   },
   titre: {
-    color: "#222",
     fontSize: 26,
     fontWeight: "800",
   },
   sousTitre: {
     marginTop: 4,
     marginBottom: 22,
-    color: "#777",
+    color: "grey",
     fontSize: 14,
   },
   row: {
@@ -72,18 +71,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   coeur: {
-    color: "#e31c5f",
+    color: "red",
     fontSize: 54,
   },
   message: {
     marginTop: 12,
-    color: "#222",
+    color: "grey",
     fontSize: 18,
     fontWeight: "700",
   },
   conseil: {
     marginTop: 8,
-    color: "#777",
+    color: "grey",
     fontSize: 14,
     textAlign: "center",
   },

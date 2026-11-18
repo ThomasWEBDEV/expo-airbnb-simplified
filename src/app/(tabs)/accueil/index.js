@@ -25,9 +25,6 @@ export default function Accueil() {
           <Text style={styles.logo}>staybnb</Text>
           <Text style={styles.slogan}>Trouvez votre prochain séjour</Text>
         </View>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>T</Text>
-        </View>
       </View>
 
       <TextInput
@@ -61,7 +58,7 @@ export default function Accueil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fafafa",
+    backgroundColor: "white",
     paddingHorizontal: 16,
   },
   header: {
@@ -72,41 +69,26 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   logo: {
-    color: "#e31c5f",
+    color: "red",
     fontSize: 26,
     fontWeight: "800",
   },
   slogan: {
     marginTop: 3,
-    color: "#777",
     fontSize: 13,
-  },
-  avatar: {
-    width: 38,
-    height: 38,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 19,
-    backgroundColor: "#222",
-  },
-  avatarText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "700",
   },
   searchBar: {
     marginBottom: 22,
     paddingHorizontal: 14,
     paddingVertical: 13,
     borderWidth: 1,
-    borderColor: "#e5e5e5",
+    borderColor: "grey",
     borderRadius: 14,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     fontSize: 14,
   },
   sectionTitle: {
     marginBottom: 14,
-    color: "#222",
     fontSize: 20,
     fontWeight: "700",
   },

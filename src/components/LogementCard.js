@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     width: "48%",
     marginBottom: 18,
     borderRadius: 16,
-    backgroundColor: "#fff",
-    shadowColor: "#000",
+    backgroundColor: "white",
+    shadowColor: "black",
     shadowOpacity: 0.08,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 3 },
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
   placeholder: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#eee",
+    backgroundColor: "white",
   },
   placeholderText: {
-    color: "#888",
+    color: "grey",
   },
   informations: {
     paddingHorizontal: 10,
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
   },
   city: {
     marginTop: 4,
-    color: "#777",
     fontSize: 13,
   },
   price: {
@@ -85,21 +84,19 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   favoriteButton: {
-    position: "absolute",
-    top: 10,
+    top: 10,position: "absolute",
     right: 10,
     width: 32,
     height: 32,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 16,
-    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    backgroundColor: "white",
   },
   favorite: {
-    color: "#333",
     fontSize: 22,
   },
   favoriteActive: {
-    color: "#e31c5f",
+    color: "red",
   },
 });
