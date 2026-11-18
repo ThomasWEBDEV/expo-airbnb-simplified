@@ -1,20 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import LogementCard from "./component/LogementCard";
+import { Redirect } from "expo-router";
 
 export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text>Mon application Airbnb</Text>
-     <ScrollView>
-        <LogementCard/>
-      </ScrollView>
-    </View>
-  );
+  return <Redirect href="/accueil" />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-});
