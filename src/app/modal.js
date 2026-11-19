@@ -1,26 +1,13 @@
+// /modal — écran présenté en modale (voir src/app/_layout.js)
 import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import Button from "../components/Button";
 
-export default function Modal() {
+export default function ModalScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titre}>Ma modale</Text>
-      <Pressable onPress={() => router.back()}>
-        <Text>Fermer</Text>
-      </Pressable>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 16, gap: 12 }}>
+      <Text style={{ fontSize: 18 }}>Ceci est une modale</Text>
+      <Button title="Fermer" onPress={() => router.back()} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-  },
-  titre: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-});

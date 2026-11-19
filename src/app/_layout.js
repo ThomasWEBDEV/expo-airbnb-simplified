@@ -1,14 +1,21 @@
+
+// Layout racine : une pile qui contient les onglets et la modale
 import { Stack } from "expo-router";
 import { FavorisProvider } from "../context/FavorisContext";
 
 export default function RootLayout() {
   return (
     <FavorisProvider>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="logement" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal", headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen
+          name="filtres"
+          options={{ presentation: "modal", headerShown: true, title: "Filtres" }}
+        />
+        <Stack.Screen
+          name="modal"
+          options={{ presentation: "modal", headerShown: true, title: "Ma modale" }}
+        />
       </Stack>
     </FavorisProvider>
   );
