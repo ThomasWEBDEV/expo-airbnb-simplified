@@ -6,8 +6,8 @@ export function FavorisProvider({ children }) {
   const [favorisIds, setFavorisIds] = useState([]);
 
   function toggleFavori(id) {
-    setFavorisIds((ids) =>
-      ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id]
+    setFavorisIds((actuels) =>
+      actuels.includes(id) ? actuels.filter((x) => x !== id) : [...actuels, id]
     );
   }
 
@@ -22,6 +22,4 @@ export function FavorisProvider({ children }) {
   );
 }
 
-export function useFavoris() {
-  return useContext(FavorisContext);
-}
+export const useFavoris = () => useContext(FavorisContext);

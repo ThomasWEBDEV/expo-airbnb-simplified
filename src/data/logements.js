@@ -1,6 +1,28 @@
+// Données locales — Jour 2 (Jour 1 + une description par logement)
+// À placer dans : src/data/logements.js
+// 12 logements, 2 villes (Rennes, Nantes).
+// L05 n'a pas d'image, L07 a un titre long.
+// Nouveau en J2 : le champ description, affiché par la fiche logement.
+
 export const logements = [
-  { id: "1", title: "Loft lumineux", city: "Rennes", price: 120, image: "https://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
-  { id: "2", title: "Studio étudiant", city: "Marseille", price: 45, image: "https://plus.unsplash.com/premium_photo-1675745329954-9639d3b74bbf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
-  { id: "3", title: "Appartement vue Loire", city: "Nantes", price: 95, image: "https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
-  { id: "4", title: "Maison avec jardin", city: "Nantes", price: 180, image: "https://images.unsplash.com/photo-1621293954908-907159247fc8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" },
-]
+  { id: "L01", title: "Studio cosy près des Lices", city: "Rennes", price: 65, rating: 4.6, description: "Studio de 20 m² entièrement rénové, à deux minutes du marché des Lices. Idéal pour un séjour court.", image: "https://picsum.photos/seed/L01/800/450" },
+  { id: "L02", title: "Appartement lumineux Sainte-Anne", city: "Rennes", price: 95, rating: 4.8, description: "Grand deux-pièces traversant au 3e étage, parquet ancien et cuisine équipée. Métro Sainte-Anne au pied de l'immeuble.", image: "https://picsum.photos/seed/L02/800/450" },
+  { id: "L03", title: "Chambre calme à Thabor", city: "Rennes", price: 45, rating: 4.3, description: "Chambre dans un appartement familial, salle de bain partagée. Le parc du Thabor est à 200 m.", image: "https://picsum.photos/seed/L03/800/450" },
+  { id: "L04", title: "Loft avec terrasse", city: "Rennes", price: 140, rating: 4.9, description: "Loft de 80 m² avec terrasse plein sud, idéal pour les beaux jours. Parking inclus.", image: "https://picsum.photos/seed/L04/800/450" },
+  { id: "L05", title: "Petit studio étudiant", city: "Rennes", price: 40, rating: 4.0, description: "Studio simple et fonctionnel près du campus de Beaulieu. Pas de photo pour l'instant.", image: null },
+  { id: "L06", title: "Maison de ville avec jardin", city: "Rennes", price: 180, rating: 4.7, description: "Maison de ville de trois chambres avec jardin clos. Parfait pour une famille ou un groupe d'amis.", image: "https://picsum.photos/seed/L06/800/450" },
+  {
+    id: "L07",
+    title: "Superbe loft lumineux avec grande terrasse et vue dégagée sur la Loire, à deux pas du centre",
+    city: "Nantes",
+    price: 155,
+    rating: 4.9,
+    description: "Loft d'architecte avec grande terrasse et vue sur la Loire. Le centre-ville est accessible à pied en dix minutes.",
+    image: "https://picsum.photos/seed/L07/800/450",
+  },
+  { id: "L08", title: "Appartement Île de Nantes", city: "Nantes", price: 85, rating: 4.5, description: "Appartement récent sur l'île de Nantes, proche des Machines de l'île. Balcon et ascenseur.", image: "https://picsum.photos/seed/L08/800/450" },
+  { id: "L09", title: "Chambre chez l'habitant", city: "Nantes", price: 35, rating: 4.2, description: "Chambre chez une habitante, petit-déjeuner compris. Quartier calme, tram à 5 minutes.", image: "https://picsum.photos/seed/L09/800/450" },
+  { id: "L10", title: "Duplex quartier Graslin", city: "Nantes", price: 120, rating: 4.6, description: "Duplex de caractère près du théâtre Graslin, poutres apparentes et mezzanine.", image: "https://picsum.photos/seed/L10/800/450" },
+  { id: "L11", title: "Studio moderne Bouffay", city: "Nantes", price: 70, rating: 4.4, description: "Studio moderne au cœur du Bouffay, entouré de restaurants. Peut être bruyant le week-end.", image: "https://picsum.photos/seed/L11/800/450" },
+  { id: "L12", title: "Péniche aménagée", city: "Nantes", price: 110, rating: 4.8, description: "Péniche aménagée amarrée sur l'Erdre : une chambre, un salon et un pont pour les apéros.", image: "https://picsum.photos/seed/L12/800/450" },
+];

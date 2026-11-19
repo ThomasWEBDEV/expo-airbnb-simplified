@@ -1,5 +1,10 @@
-import { Stack } from "expo-router";
+import { Drawer } from "expo-router/drawer";
 
 export default function ProfilLayout() {
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <Drawer>
+      <Drawer.Screen name="index" options={{ title: "Profil" }} />
+      <Drawer.Screen name="reglages" options={{ title: "Réglages" }} />
+    </Drawer>
+  );
 }
